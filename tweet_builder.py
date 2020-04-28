@@ -19,12 +19,12 @@ class TweetBuilder():
 
   def get_title(self) -> str:
     subject = self.find_subject()
-    url = f"https://www.googleapis.com/books/v1/volumes?q={subject}&fields=items(volumeInfo/title)"
+    url = f"https://www.googleapis.com/books/v1/volumes?q={subject}&fields=items(volumeInfo/title)&maxResults=30"
     response = requests.get(url=url)
     parsed_response = response.json()
     items = parsed_response['items']
     return items[self.get_book_index()]['volumeInfo']['title']
 
   def get_book_index(self) -> int:
-    return randint(0, 9)
+    return randint(0, 30)
 
