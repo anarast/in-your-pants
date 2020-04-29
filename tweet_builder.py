@@ -36,7 +36,7 @@ class TweetBuilder():
 
     parsed_response = response.json()
     items = parsed_response['items']
-    book_index = randint(0, self.num_results)
+    book_index = randint(0, self.num_results - 1)
 
     return items[book_index]['volumeInfo']['title']
 
