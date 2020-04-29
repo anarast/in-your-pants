@@ -7,6 +7,11 @@ from random import randint
 
 class TweetBuilder():
   num_results: int
+  base_volumes_url: str
+  in_your_pants: str
+  language: str
+  print_type: str
+  fields: str
 
   def __init__(self):
     self.num_results = 30
@@ -36,7 +41,7 @@ class TweetBuilder():
 
     parsed_response = response.json()
     items = parsed_response['items']
-    book_index = randint(0, self.num_results - 1)
+    book_index = randint(0, len(items) - 1)
 
     return items[book_index]['volumeInfo']['title']
 
